@@ -6,7 +6,6 @@
   <title>Synthetic Thought Institute</title>
   <meta name="description" content="Research notes, tools, and publications from Synthetic Thought Institute." />
 
-  <!-- Basic social previews -->
   <meta property="og:title" content="Synthetic Thought Institute" />
   <meta property="og:description" content="Research notes, tools, and publications from Synthetic Thought Institute." />
   <meta property="og:type" content="website" />
@@ -14,47 +13,60 @@
 
   <style>
     :root{
-      --bg:#0b0d10;
-      --panel:#12161c;
+      --bg:#05070a;
+      --panel:#0c1118;
       --text:#e9eef7;
-      --muted:#a9b4c6;
-      --line:#232b36;
-      --accent:#6aa6ff;
-      --accent2:#7cffc9;
+      --muted:#9aa9bf;
+      --line:#1a2431;
+
+      --cyan:#00f5ff;
+      --mag:#ff4fd8;
+      --vio:#8a6bff;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(106,166,255,.15), transparent 55%),
-                  radial-gradient(1000px 700px at 80% 30%, rgba(124,255,201,.12), transparent 55%),
-                  var(--bg);
       color:var(--text);
+      background:
+        radial-gradient(1100px 750px at 18% 12%, rgba(0,245,255,.13), transparent 58%),
+        radial-gradient(900px 650px at 78% 28%, rgba(255,79,216,.10), transparent 55%),
+        radial-gradient(900px 650px at 60% 80%, rgba(138,107,255,.10), transparent 55%),
+        var(--bg);
       line-height:1.45;
     }
     a{color:inherit; text-decoration:none}
-    a:hover{color:var(--accent)}
-    .wrap{max-width:980px; margin:0 auto; padding:48px 20px 64px}
+    a:hover{color:var(--cyan)}
+    .wrap{max-width:1040px; margin:0 auto; padding:46px 18px 70px}
     header{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
-      padding:18px 0 28px; border-bottom:1px solid var(--line);
+      display:grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap:20px;
+      align-items:center;
+      padding:18px 0 28px;
+      border-bottom:1px solid var(--line);
     }
-    .brand{
-      display:flex; flex-direction:column; gap:10px;
+    @media (max-width: 860px){
+      header{grid-template-columns: 1fr; gap:18px}
+      .heroArt{justify-self:start}
     }
+
     .kicker{
-      font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
     }
     h1{
-      margin:0;
-      font-size:40px;
+      margin:10px 0 10px;
+      font-size:42px;
       letter-spacing:-0.02em;
     }
     .sub{
       margin:0;
       color:var(--muted);
-      max-width:64ch;
+      max-width:68ch;
       font-size:16px;
     }
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
@@ -65,15 +77,61 @@
       background:rgba(255,255,255,.03);
       color:var(--text);
       transition: transform .08s ease, border-color .12s ease, background .12s ease;
-      font-weight:600;
+      font-weight:650;
       font-size:14px;
     }
-    .btn:hover{border-color:rgba(106,166,255,.55); background:rgba(106,166,255,.07)}
+    .btn:hover{border-color:rgba(0,245,255,.55); background:rgba(0,245,255,.08)}
     .btn.primary{
-      border-color:rgba(106,166,255,.65);
-      background:rgba(106,166,255,.12);
+      border-color:rgba(0,245,255,.65);
+      background:rgba(0,245,255,.12);
     }
-    .btn.primary:hover{background:rgba(106,166,255,.18)}
+    .btn.primary:hover{background:rgba(0,245,255,.18)}
+    .btn.alt:hover{border-color:rgba(255,79,216,.55); background:rgba(255,79,216,.08); color:var(--text)}
+
+    .heroArt{
+      justify-self:end;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .orb{
+      width:220px;
+      height:220px;
+      border-radius:999px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(26,36,49,.9);
+      background:rgba(12,17,24,.65);
+      box-shadow:
+        0 0 0 1px rgba(0,245,255,.12) inset,
+        0 0 40px rgba(0,245,255,.10),
+        0 0 55px rgba(255,79,216,.08);
+    }
+    .orb::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(120px 120px at 25% 25%, rgba(0,245,255,.22), transparent 55%),
+        radial-gradient(140px 140px at 78% 35%, rgba(255,79,216,.18), transparent 58%),
+        radial-gradient(170px 170px at 55% 80%, rgba(138,107,255,.14), transparent 60%);
+      pointer-events:none;
+      filter: blur(6px);
+      opacity:.9;
+    }
+    .orb img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      opacity:.95;
+    }
+    .orbBadge{
+      margin-top:10px;
+      text-align:right;
+      color:var(--muted);
+      font-size:12px;
+    }
+
     main{padding-top:26px}
     .grid{
       display:grid;
@@ -82,13 +140,13 @@
     }
     .card{
       grid-column: span 12;
-      background:rgba(18,22,28,.72);
+      background:rgba(12,17,24,.72);
       border:1px solid var(--line);
       border-radius:16px;
       padding:16px;
       backdrop-filter: blur(10px);
     }
-    @media (min-width: 800px){
+    @media (min-width: 860px){
       .card.span6{grid-column: span 6}
       .card.span4{grid-column: span 4}
     }
@@ -102,12 +160,22 @@
     .linkRow{
       display:flex; align-items:center; justify-content:space-between; gap:10px;
       padding:10px 12px; border-radius:12px;
-      border:1px solid rgba(35,43,54,.9);
+      border:1px solid rgba(26,36,49,.95);
       background:rgba(255,255,255,.02);
     }
-    .linkRow:hover{border-color:rgba(106,166,255,.45)}
+    .linkRow:hover{border-color:rgba(0,245,255,.45)}
     .linkTitle{font-weight:650; font-size:14px}
     .linkMeta{font-size:12px; color:var(--muted)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(26,36,49,.95);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
     footer{
       margin-top:28px;
       padding-top:18px;
@@ -134,28 +202,35 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">
+      <div>
         <div class="kicker">Synthetic Thought Institute</div>
         <h1>Research, tools, and publications.</h1>
         <p class="sub">
-          A public landing page for projects, papers, datasets, and reproducible artifacts.
-          Keep it simple: link to the work that matters.
+          Public notes and artifacts. Reproducible where possible. Minimal claims, maximal traceability.
         </p>
+
         <div class="ctaRow">
-          <a class="btn primary" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
-            GitHub Org →
-          </a>
-          <a class="btn" href="#projects">Projects</a>
+          <a class="btn primary" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">GitHub →</a>
+          <a class="btn alt" href="https://bsky.app/profile/syntheticthought.bsky.social" target="_blank" rel="noreferrer">Bluesky →</a>
+          <a class="btn" href="https://orcid.org/0009-0000-4129-5755" target="_blank" rel="noreferrer">ORCID →</a>
           <a class="btn" href="#papers">Papers</a>
-          <a class="btn" href="#contact">Contact</a>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="pill">Focus: math-first physics</span>
+          <span class="pill">Artifacts: code • notes • datasets</span>
         </div>
       </div>
 
-      <div style="min-width:220px; text-align:right">
-        <div class="kicker">Status</div>
-        <div style="margin-top:8px; display:flex; flex-direction:column; gap:8px; align-items:flex-end">
-          <code class="badge">Last updated: <span id="lastUpdated">—</span></code>
-          <code class="badge">Build: GitHub Pages</code>
+      <div class="heroArt">
+        <!-- Put your GIF in the repo at: /assets/e8_perfect_loop.gif -->
+        <div>
+          <div class="orb" aria-label="Animated header graphic">
+            <img src="assets/e8_perfect_loop.gif" alt="Animated geometric lattice graphic" />
+          </div>
+          <div class="orbBadge">
+            <code class="badge">Last updated: <span id="lastUpdated">—</span></code>
+          </div>
         </div>
       </div>
     </header>
@@ -164,7 +239,7 @@
       <div class="grid">
         <section class="card span6" id="projects">
           <h2>Featured projects</h2>
-          <p>Replace these with your real repos (keep 3–6 max).</p>
+          <p>Replace these with your real repos (keep it tight).</p>
           <ul class="clean">
             <li>
               <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
@@ -184,15 +259,6 @@
                 <div class="linkMeta">→</div>
               </a>
             </li>
-            <li>
-              <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
-                <div>
-                  <div class="linkTitle">Project / Repo Name</div>
-                  <div class="linkMeta">Docs, PRDs, and execution rails</div>
-                </div>
-                <div class="linkMeta">→</div>
-              </a>
-            </li>
           </ul>
         </section>
 
@@ -201,10 +267,11 @@
           <p>Link PDFs, preprints, or markdown notes.</p>
           <ul class="clean">
             <li>
-              <a class="linkRow" href="#" onclick="return false;">
+              <!-- Replace href with your Zenodo record URL once it exists -->
+              <a class="linkRow" href="#" onclick="return false;" title="Add your Zenodo link when published">
                 <div>
-                  <div class="linkTitle">Paper Title</div>
-                  <div class="linkMeta">PDF • Year • Topic</div>
+                  <div class="linkTitle">Zenodo (coming soon)</div>
+                  <div class="linkMeta">Research paper archive link will live here</div>
                 </div>
                 <div class="linkMeta">→</div>
               </a>
@@ -221,35 +288,28 @@
           </ul>
         </section>
 
-        <section class="card span4" id="principles">
-          <h2>Principles</h2>
-          <p>Keep it tight. No hype.</p>
-          <ul class="clean">
-            <li class="linkRow" style="cursor:default">
-              <div>
-                <div class="linkTitle">Reproducible</div>
-                <div class="linkMeta">Deterministic runs, explicit artifacts</div>
-              </div>
-            </li>
-            <li class="linkRow" style="cursor:default">
-              <div>
-                <div class="linkTitle">Transparent</div>
-                <div class="linkMeta">Clear assumptions, falsifiable claims</div>
-              </div>
-            </li>
-            <li class="linkRow" style="cursor:default">
-              <div>
-                <div class="linkTitle">Minimal</div>
-                <div class="linkMeta">Fewest moving parts, no magic knobs</div>
-              </div>
-            </li>
-          </ul>
-        </section>
-
         <section class="card span4" id="links">
           <h2>Links</h2>
-          <p>Put your canonical links here.</p>
+          <p>Canonical identities.</p>
           <ul class="clean">
+            <li>
+              <a class="linkRow" href="https://bsky.app/profile/syntheticthought.bsky.social" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">Bluesky</div>
+                  <div class="linkMeta">@syntheticthought.bsky.social</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="https://orcid.org/0009-0000-4129-5755" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">ORCID</div>
+                  <div class="linkMeta">0009-0000-4129-5755</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
             <li>
               <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
                 <div>
@@ -259,30 +319,37 @@
                 <div class="linkMeta">→</div>
               </a>
             </li>
-            <li>
-              <a class="linkRow" href="#" onclick="return false;">
-                <div>
-                  <div class="linkTitle">Docs</div>
-                  <div class="linkMeta">Replace with your docs site</div>
-                </div>
-                <div class="linkMeta">→</div>
-              </a>
+          </ul>
+        </section>
+
+        <section class="card span4" id="principles">
+          <h2>Principles</h2>
+          <p>No hype. If it can’t be checked, it’s not a result.</p>
+          <ul class="clean">
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Reproducible</div>
+                <div class="linkMeta">Deterministic runs, explicit artifacts</div>
+              </div>
             </li>
-            <li>
-              <a class="linkRow" href="#" onclick="return false;">
-                <div>
-                  <div class="linkTitle">X / LinkedIn</div>
-                  <div class="linkMeta">Replace with your profile</div>
-                </div>
-                <div class="linkMeta">→</div>
-              </a>
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Falsifiable</div>
+                <div class="linkMeta">Clear assumptions, measurable deltas</div>
+              </div>
+            </li>
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Minimal knobs</div>
+                <div class="linkMeta">Parameters must be derived or justified</div>
+              </div>
             </li>
           </ul>
         </section>
 
         <section class="card span4" id="contact">
           <h2>Contact</h2>
-          <p>Use a single inbox you’re willing to receive mail at.</p>
+          <p>Set a real inbox when you’re ready.</p>
           <ul class="clean">
             <li class="linkRow" style="cursor:default">
               <div>
@@ -292,8 +359,8 @@
             </li>
             <li class="linkRow" style="cursor:default">
               <div>
-                <div class="linkTitle">PGP</div>
-                <div class="linkMeta">Optional</div>
+                <div class="linkTitle">Zenodo</div>
+                <div class="linkMeta">Link will be added after first upload</div>
               </div>
             </li>
           </ul>
@@ -308,10 +375,8 @@
   </div>
 
   <script>
-    // Small touches, no frameworks.
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("lastUpdated").textContent = new Date().toISOString().slice(0,10);
-    // Optional: set real email
     // document.getElementById("email").textContent = "hello@syntheticthoughtinstitute.org";
   </script>
 </body>
