@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Synthetic Thought Institute</title>
+  <meta name="description" content="Research notes, tools, and publications from Synthetic Thought Institute." />
+
+  <!-- Basic social previews -->
+  <meta property="og:title" content="Synthetic Thought Institute" />
+  <meta property="og:description" content="Research notes, tools, and publications from Synthetic Thought Institute." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://syntheticthoughtinstitute.github.io/" />
+
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --panel:#12161c;
+      --text:#e9eef7;
+      --muted:#a9b4c6;
+      --line:#232b36;
+      --accent:#6aa6ff;
+      --accent2:#7cffc9;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(106,166,255,.15), transparent 55%),
+                  radial-gradient(1000px 700px at 80% 30%, rgba(124,255,201,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{max-width:980px; margin:0 auto; padding:48px 20px 64px}
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+      padding:18px 0 28px; border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .kicker{
+      font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+    }
+    h1{
+      margin:0;
+      font-size:40px;
+      letter-spacing:-0.02em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width:64ch;
+      font-size:16px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      transition: transform .08s ease, border-color .12s ease, background .12s ease;
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn:hover{border-color:rgba(106,166,255,.55); background:rgba(106,166,255,.07)}
+    .btn.primary{
+      border-color:rgba(106,166,255,.65);
+      background:rgba(106,166,255,.12);
+    }
+    .btn.primary:hover{background:rgba(106,166,255,.18)}
+    main{padding-top:26px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      background:rgba(18,22,28,.72);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      backdrop-filter: blur(10px);
+    }
+    @media (min-width: 800px){
+      .card.span6{grid-column: span 6}
+      .card.span4{grid-column: span 4}
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-0.01em;
+    }
+    .card p{margin:0 0 12px; color:var(--muted)}
+    ul.clean{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+    .linkRow{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid rgba(35,43,54,.9);
+      background:rgba(255,255,255,.02);
+    }
+    .linkRow:hover{border-color:rgba(106,166,255,.45)}
+    .linkTitle{font-weight:650; font-size:14px}
+    .linkMeta{font-size:12px; color:var(--muted)}
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    code.badge{
+      padding:3px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.02);
+      color:var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="kicker">Synthetic Thought Institute</div>
+        <h1>Research, tools, and publications.</h1>
+        <p class="sub">
+          A public landing page for projects, papers, datasets, and reproducible artifacts.
+          Keep it simple: link to the work that matters.
+        </p>
+        <div class="ctaRow">
+          <a class="btn primary" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
+            GitHub Org →
+          </a>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#papers">Papers</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div style="min-width:220px; text-align:right">
+        <div class="kicker">Status</div>
+        <div style="margin-top:8px; display:flex; flex-direction:column; gap:8px; align-items:flex-end">
+          <code class="badge">Last updated: <span id="lastUpdated">—</span></code>
+          <code class="badge">Build: GitHub Pages</code>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <section class="card span6" id="projects">
+          <h2>Featured projects</h2>
+          <p>Replace these with your real repos (keep 3–6 max).</p>
+          <ul class="clean">
+            <li>
+              <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">Project / Repo Name</div>
+                  <div class="linkMeta">1–2 lines on what it does and why it exists</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">Project / Repo Name</div>
+                  <div class="linkMeta">Reproducible code + data + results</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">Project / Repo Name</div>
+                  <div class="linkMeta">Docs, PRDs, and execution rails</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card span6" id="papers">
+          <h2>Papers & notes</h2>
+          <p>Link PDFs, preprints, or markdown notes.</p>
+          <ul class="clean">
+            <li>
+              <a class="linkRow" href="#" onclick="return false;">
+                <div>
+                  <div class="linkTitle">Paper Title</div>
+                  <div class="linkMeta">PDF • Year • Topic</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="#" onclick="return false;">
+                <div>
+                  <div class="linkTitle">Technical Note Title</div>
+                  <div class="linkMeta">Markdown • Year • Topic</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card span4" id="principles">
+          <h2>Principles</h2>
+          <p>Keep it tight. No hype.</p>
+          <ul class="clean">
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Reproducible</div>
+                <div class="linkMeta">Deterministic runs, explicit artifacts</div>
+              </div>
+            </li>
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Transparent</div>
+                <div class="linkMeta">Clear assumptions, falsifiable claims</div>
+              </div>
+            </li>
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Minimal</div>
+                <div class="linkMeta">Fewest moving parts, no magic knobs</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card span4" id="links">
+          <h2>Links</h2>
+          <p>Put your canonical links here.</p>
+          <ul class="clean">
+            <li>
+              <a class="linkRow" href="https://github.com/syntheticthoughtinstitute" target="_blank" rel="noreferrer">
+                <div>
+                  <div class="linkTitle">GitHub</div>
+                  <div class="linkMeta">Organization</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="#" onclick="return false;">
+                <div>
+                  <div class="linkTitle">Docs</div>
+                  <div class="linkMeta">Replace with your docs site</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+            <li>
+              <a class="linkRow" href="#" onclick="return false;">
+                <div>
+                  <div class="linkTitle">X / LinkedIn</div>
+                  <div class="linkMeta">Replace with your profile</div>
+                </div>
+                <div class="linkMeta">→</div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card span4" id="contact">
+          <h2>Contact</h2>
+          <p>Use a single inbox you’re willing to receive mail at.</p>
+          <ul class="clean">
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">Email</div>
+                <div class="linkMeta"><span id="email">contact@yourdomain.org</span></div>
+              </div>
+            </li>
+            <li class="linkRow" style="cursor:default">
+              <div>
+                <div class="linkTitle">PGP</div>
+                <div class="linkMeta">Optional</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <div>© <span id="year"></span> Synthetic Thought Institute</div>
+        <div>Hosted on GitHub Pages</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Small touches, no frameworks.
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastUpdated").textContent = new Date().toISOString().slice(0,10);
+    // Optional: set real email
+    // document.getElementById("email").textContent = "hello@syntheticthoughtinstitute.org";
+  </script>
+</body>
+</html>
